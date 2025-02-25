@@ -46,6 +46,15 @@
                 } catch {
                     display.value = "Error"; 
                 }
+            } else if (value == "<") {
+                display.value = display.value.slice(0, -1)
+            } else if (value === "()") { 
+                let lastChar = display.value.slice(-1);
+                if (lastChar.match(/[0-9)]$/)) {
+                    display.value += ")"
+                } else {
+                    display.value += "("
+                }
             } else {
                 if (display.value === "0" && value !== "." && !isNaN(value)) {
                     display.value = value;
